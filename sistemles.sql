@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 11, 2020 at 05:38 AM
+-- Generation Time: Sep 11, 2020 at 02:27 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.7
 
@@ -35,15 +35,16 @@ CREATE TABLE `guru` (
   `alamat` varchar(100) DEFAULT NULL,
   `tgllahir` date DEFAULT NULL,
   `gender` varchar(10) DEFAULT NULL,
-  `mapel` varchar(100) DEFAULT NULL
+  `mapel` varchar(100) DEFAULT NULL,
+  `lampiran` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `guru`
 --
 
-INSERT INTO `guru` (`id`, `kode`, `nama`, `telp`, `alamat`, `tgllahir`, `gender`, `mapel`) VALUES
-(2, 'B002', 'edy kurniawan', '08788121', 'Sukoharjo', '2020-05-09', 'L', 'TIK');
+INSERT INTO `guru` (`id`, `kode`, `nama`, `telp`, `alamat`, `tgllahir`, `gender`, `mapel`, `lampiran`) VALUES
+(2, 'B002', 'edy kurniawan', '08788121', 'Sukoharjo', '2020-05-09', 'L', 'TIK', NULL);
 
 -- --------------------------------------------------------
 
@@ -77,7 +78,8 @@ CREATE TABLE `murid` (
   `alamat` varchar(100) DEFAULT NULL,
   `telp` varchar(14) DEFAULT NULL,
   `jenjang` varchar(50) DEFAULT NULL,
-  `tgllahir` date DEFAULT NULL
+  `tgllahir` date DEFAULT NULL,
+  `foto` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
