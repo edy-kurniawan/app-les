@@ -36,6 +36,9 @@ class guru extends CI_Controller
         $list   = array();
         $No     = 1;
         foreach ($result as $r) {
+            if( $r->status=="T" ) { $status = "<span class='badge badge-primary'>Diterima</span>"; }
+            else if( $r->status=="F" ) { $status = "<span class='badge badge-danger'>Tidak Diterima</span>"; }
+            else { $status = "<span class='badge badge-warning'>Belum divalidasi</span>"; }
             $row    = array(
                 "no"        => $No,
                 "kode"      => $r->kode,
@@ -46,7 +49,7 @@ class guru extends CI_Controller
                 "gender"    => $r->gender,
                 "mapel"     => $r->mapel,
                 "lampiran"  => $r->lampiran,
-                "status"    => $r->status,
+                "status"    => $status,
                 "action"    => tombol($r->id)
             );
 
