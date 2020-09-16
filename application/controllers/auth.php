@@ -23,10 +23,10 @@ class auth extends CI_Controller
                 redirect('admin/guru');
             }
             if ($this->session->userdata['level'] == "guru") {
-                redirect('guru/home');
+                redirect('guru/absensi');
             }
             if ($this->session->userdata['level'] == "murid") {
-                redirect('murid/home');
+                redirect('murid/absensi');
             }
     }
 

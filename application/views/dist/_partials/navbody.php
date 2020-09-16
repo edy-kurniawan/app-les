@@ -3,7 +3,15 @@
     <div class="main-wrapper container">
       <div class="navbar-bg"></div>
       <nav class="navbar navbar-expand-lg main-navbar">
-        <a href="http://localhost/stisla-codeigniter/dist/index" class="navbar-brand sidebar-gone-hide">ADMIN PAGE</a>
+        <?php if($this->session->userdata('level') =='admin'): ?>
+          <a href="#" class="navbar-brand sidebar-gone-hide">Halaman ADMIN</a>
+        <?php endif; ?>
+        <?php if($this->session->userdata('level') =='murid'): ?>
+          <a href="#" class="navbar-brand sidebar-gone-hide">Halaman MURID</a>
+        <?php endif; ?>
+        <?php if($this->session->userdata('level') =='guru'): ?>
+          <a href="#" class="navbar-brand sidebar-gone-hide">Halaman GURU</a>
+        <?php endif; ?>
         <a href="#" class="nav-link sidebar-gone-show" data-toggle="sidebar"><i class="fas fa-bars"></i></a>
         <div class="nav-collapse">
           <a class="sidebar-gone-show nav-collapse-toggle nav-link" href="#">
@@ -171,6 +179,7 @@
       <nav class="navbar navbar-secondary navbar-expand-lg">
         <div class="container">
           <ul class="navbar-nav">
+          <?php if($this->session->userdata('level') =='admin'): ?>
             <li class="nav-item">
               <a href="<?php echo base_url('admin/guru'); ?>" class="nav-link"><i class="fas fa-chalkboard-teacher"></i><span>Data Guru</span></a>
             </li>
@@ -183,6 +192,15 @@
             <li class="nav-item">
               <a href="<?php echo base_url('admin/absensi'); ?>" class="nav-link"><i class="fas fa-check-square"></i><span>Absensi</span></a>
             </li>
+          <?php endif; ?>
+          <?php if($this->session->userdata('level') =='guru'): ?>
+            <li class="nav-item">
+              <a href="<?php echo base_url('guru/jadwal'); ?>" class="nav-link"><i class="fas fa-chalkboard-teacher"></i><span>Data Jadwal</span></a>
+            </li>
+            <li class="nav-item">
+              <a href="<?php echo base_url('guru/absensi'); ?>" class="nav-link"><i class="fas fa-users"></i><span>Data Absensi</span></a>
+            </li>
+          <?php endif; ?>
           </ul>
         </div>
       </nav>

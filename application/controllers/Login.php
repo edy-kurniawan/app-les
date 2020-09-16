@@ -55,7 +55,7 @@ function aksi_login(){
                 <i class="icon fa fa-check"></i>
                 Login Sukses
               </div>');
-                redirect('admin/auth');
+                redirect('auth');
 
         }else{
             $this->session->set_flashdata('message', '<div style="color : red;">Username dan password Tidak Ditemukan</div>');
