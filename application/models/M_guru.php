@@ -8,6 +8,7 @@ class M_guru extends CI_Model{
         
         $this->load->model('DbHelper');
     }
+    
     function getSemua(){
         $sql    =   "SELECT * from guru";
                     
@@ -15,19 +16,13 @@ class M_guru extends CI_Model{
 
     }
 
-    function cek_meja($table,$where){
-
-        return $this->db->get_where($table,$where);
-    
-      }
-
     function hapus_data($where,$table){
         $this->db->where($where);
         $this->db->delete($table);
     }
 
-    function inputdata($data2,$table){
-        $this->db->insert($table,$data2);
+    function inputdata($data,$table){
+        $this->db->insert($table,$data);
     }
 
     public function edit($id)

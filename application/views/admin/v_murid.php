@@ -54,9 +54,18 @@ $this->load->view('dist/_partials/navbody');
                       <i class="form-control-feedback"></i><span class="text-warning" ></span>
                   </div> 
                   <div class="form-group">
-                    <label>Jenjang</label>
-                   <input type="text" class="form-control" placeholder="Masukan Jenjang" name="jenjang" required>
-                      <i class="form-control-feedback"></i><span class="text-warning" ></span>
+                    <label>Paket</label>
+                    <select name="paket" class="form-control" required>
+                      <option value="">Pilih Paket Kelas</option>
+                      <option value="SMA/1">SMA - Paket 1 (Keterangan)</option>
+                      <option value="SMA/2">SMA - Paket 2 (Keterangan)</option>
+                      <option value="SMK/1">SMK - Paket 1 (Keterangan)</option>
+                      <option value="SMK/2">SMK - Paket 2 (Keterangan)</option>
+                      <option value="SMP/1">SMP - Paket 1 (Keterangan)</option>
+                      <option value="SMP/2">SMP - Paket 2 (Keterangan)</option>  
+                      <option value="SD/1">SD - Paket 1 (Keterangan)</option>
+                      <option value="SD/2">SD - Paket 2 (Keterangan)</option>                      
+                  </select>
                   </div> 
                   <div class="form-group">
                     <label>Telp</label>
@@ -68,11 +77,6 @@ $this->load->view('dist/_partials/navbody');
                       <input type="text" class="form-control datepicker" id="datepicker" placeholder="Masukan Tanggal Lahir" name="tgl" required>
                       <i class="form-control-feedback"></i><span class="text-warning" ></span>
                   </div> 
-                  <div class="form-group">
-                    <label>Foto</label>
-                      <input type="text" class="form-control" placeholder="Masukan Foto" name="foto" required>
-                      <i class="form-control-feedback"></i><span class="text-warning" ></span>
-                  </div>  
                   <div class="form-group">
                     <label>Alamat</label>
                       <textarea class="form-control" placeholder="Masukan Alamat" name="alamat"></textarea>
@@ -107,9 +111,9 @@ $this->load->view('dist/_partials/navbody');
                   <div class="card-header">
                     <div class="float-right">
                     <button class="btn btn-light float-right" onclick="reload_table()" data-toggle="tooltip"  data-placement="top" title="Reload Table"><i class="glyphicon glyphicon-refresh"></i> Reload</button>
-                    <button type="button" class="btn btn-info float-right" onclick="add_kategori()" data-toggle="tooltip" data-placement="top" title="Tambah Data">
+                    <!-- <button type="button" class="btn btn-info float-right" onclick="add_kategori()" data-toggle="tooltip" data-placement="top" title="Tambah Data">
                       Tambah
-                    <span class="glyphicon glyphicon-file"></span></button>  
+                    <span class="glyphicon glyphicon-file"></span></button>   -->
                   </div>
                   </div>
                   <div class="card-body">
@@ -123,8 +127,9 @@ $this->load->view('dist/_partials/navbody');
                               <th>Telp</th>
                               <th>Alamat</th>
                               <th>Tanggal Lahir</th>
-                              <th>Jenjang</th>
+                              <th>Paket</th>
                               <th>Foto</th>
+                              <th>Status</th>
                               <th>Action</th>
                           </tr>
                         </thead>
@@ -196,8 +201,9 @@ $this->load->view('dist/_partials/navbody');
               { "data": "telp" },
               { "data": "alamat" },  
               { "data": "tgllahir" },
-              { "data": "jenjang" },
+              { "data": "paket" },
               { "data": "foto" },
+              { "data": "status" },
               { "data": "action" }
             ],
             "order": [[0, 'asc']]
@@ -237,10 +243,9 @@ $this->load->view('dist/_partials/navbody');
     $('[name="kode"]').val(data.kode);
     $('[name="tgl"]').val(data.tgllahir);
     $('[name="telp"]').val(data.telp);
-    $('[name="jenjang"]').val(data.jenjang);
+    $('[name="paket"]').val(data.paket);
     $('[name="nama"]').val(data.nama);
     $('[name="alamat"]').val(data.alamat);
-    $('[name="foto"]').val(data.foto);
     $('#modal_form').modal('show'); // show bootstrap modal when complete loaded
     $('.modal-title').text('Edit Data Murid'); // Set title to Bootstrap modal title
     

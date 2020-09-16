@@ -81,6 +81,11 @@ $this->load->view('dist/_partials/navbody');
                       <textarea class="form-control" placeholder="Masukan Alamat" name="alamat"></textarea>
                       <i class="form-control-feedback"></i><span class="text-warning" ></span>
                   </div> 
+                  <div class="form-group">
+                    <label>Lampiran</label>
+                      <textarea class="form-control" placeholder="Masukan Lampiran" name="lampiran"></textarea>
+                      <i class="form-control-feedback"></i><span class="text-warning" ></span>
+                  </div> 
               </div>
             </form>
           </div>
@@ -110,9 +115,9 @@ $this->load->view('dist/_partials/navbody');
                   <div class="card-header">
                     <div class="float-right">
                     <button class="btn btn-light float-right" onclick="reload_table()" data-toggle="tooltip"  data-placement="top" title="Reload Table"><i class="glyphicon glyphicon-refresh"></i> Reload</button>
-                    <button type="button" class="btn btn-info float-right" onclick="add_kategori()" data-toggle="tooltip" data-placement="top" title="Tambah Data">
+                    <!-- <button type="button" class="btn btn-info float-right" onclick="add_kategori()" data-toggle="tooltip" data-placement="top" title="Tambah Data">
                       Tambah
-                    <span class="glyphicon glyphicon-file"></span></button>  
+                    <span class="glyphicon glyphicon-file"></span></button>   -->
                   </div>
                   </div>
                   <div class="card-body">
@@ -128,6 +133,8 @@ $this->load->view('dist/_partials/navbody');
                               <th>Tanggal Lahir</th>
                               <th>Gender</th>
                               <th>Mapel</th>
+                              <th>Lampiran</th>
+                              <th>Status</th>
                               <th>Action</th>
                           </tr>
                         </thead>
@@ -201,6 +208,8 @@ $this->load->view('dist/_partials/navbody');
               { "data": "tgllahir" },
               { "data": "gender" },
               { "data": "mapel" },
+              { "data": "lampiran" },
+              { "data": "status" },
               { "data": "action" }
             ],
             "order": [[0, 'asc']]
@@ -244,6 +253,7 @@ $this->load->view('dist/_partials/navbody');
     $('[name="nama"]').val(data.nama);
     $('[name="alamat"]').val(data.alamat);
     $('[name="jenis"]').val(data.gender);
+    $('[name="lampiran"]').val(data.lampiran);
     $('#modal_form').modal('show'); // show bootstrap modal when complete loaded
     $('.modal-title').text('Edit Data Guru'); // Set title to Bootstrap modal title
     

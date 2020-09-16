@@ -171,21 +171,17 @@
       <nav class="navbar navbar-secondary navbar-expand-lg">
         <div class="container">
           <ul class="navbar-nav">
-            <li class="nav-item dropdown">
-              <a href="#" data-toggle="dropdown" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Dashboard</span></a>
-              <ul class="dropdown-menu">
-                <li class="nav-item"><a href="http://localhost/stisla-codeigniter/dist/index_0" class="nav-link">General Dashboard</a></li>
-                <li class="nav-item"><a href="http://localhost/stisla-codeigniter/dist/index" class="nav-link">Ecommerce Dashboard</a></li>
-              </ul>
+            <li class="nav-item">
+              <a href="<?php echo base_url('admin/guru'); ?>" class="nav-link"><i class="fas fa-chalkboard-teacher"></i><span>Data Guru</span></a>
             </li>
             <li class="nav-item">
-              <a href="<?php echo base_url('Bahanbaku'); ?>" class="nav-link"><i class="far fa-clipboard"></i><span>Data Guru</span></a>
+              <a href="<?php echo base_url('admin/murid'); ?>" class="nav-link"><i class="fas fa-users"></i><span>Data Murid</span></a>
             </li>
             <li class="nav-item">
-              <a href="<?php echo base_url('Dataorder'); ?>" class="nav-link"><i class="fas fa-shopping-cart"></i><span>Data Murid</span></a>
+              <a href="<?php echo base_url('admin/jadwal'); ?>" class="nav-link"><i class="fas fa-book-open"></i><span>Jadwal</span></a>
             </li>
             <li class="nav-item">
-              <a href="<?php echo base_url('Monitoring'); ?>" class="nav-link"><i class="fas fa-shopping-cart"></i><span>Jadwal</span></a>
+              <a href="<?php echo base_url('admin/absensi'); ?>" class="nav-link"><i class="fas fa-check-square"></i><span>Absensi</span></a>
             </li>
           </ul>
         </div>

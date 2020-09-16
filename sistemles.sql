@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 11, 2020 at 02:27 PM
+-- Generation Time: Sep 16, 2020 at 01:44 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.7
 
@@ -24,6 +24,21 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `absensi`
+--
+
+CREATE TABLE `absensi` (
+  `id` int(2) NOT NULL,
+  `murid` varchar(50) NOT NULL,
+  `guru` varchar(50) NOT NULL,
+  `tgl` varchar(255) NOT NULL,
+  `materi` varchar(255) NOT NULL,
+  `status` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `guru`
 --
 
@@ -36,15 +51,9 @@ CREATE TABLE `guru` (
   `tgllahir` date DEFAULT NULL,
   `gender` varchar(10) DEFAULT NULL,
   `mapel` varchar(100) DEFAULT NULL,
-  `lampiran` varchar(255) DEFAULT NULL
+  `lampiran` text DEFAULT NULL,
+  `status` varchar(2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `guru`
---
-
-INSERT INTO `guru` (`id`, `kode`, `nama`, `telp`, `alamat`, `tgllahir`, `gender`, `mapel`, `lampiran`) VALUES
-(2, 'B002', 'edy kurniawan', '08788121', 'Sukoharjo', '2020-05-09', 'L', 'TIK', NULL);
 
 -- --------------------------------------------------------
 
@@ -63,7 +72,8 @@ CREATE TABLE `login` (
 --
 
 INSERT INTO `login` (`username`, `pass`, `level`) VALUES
-('admin', '21232f297a57a5a743894a0e4a801fc3', '0');
+('admin', '21232f297a57a5a743894a0e4a801fc3', 'admin'),
+('duta', '827ccb0eea8a706c4c34a16891f84e7b', 'murid');
 
 -- --------------------------------------------------------
 
@@ -77,14 +87,29 @@ CREATE TABLE `murid` (
   `nama` varchar(100) DEFAULT NULL,
   `alamat` varchar(100) DEFAULT NULL,
   `telp` varchar(14) DEFAULT NULL,
-  `jenjang` varchar(50) DEFAULT NULL,
   `tgllahir` date DEFAULT NULL,
-  `foto` varchar(255) DEFAULT NULL
+  `foto` varchar(255) DEFAULT NULL,
+  `gender` varchar(15) DEFAULT NULL,
+  `paket` varchar(10) DEFAULT NULL,
+  `status` varchar(2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `murid`
+--
+
+INSERT INTO `murid` (`id`, `kode`, `nama`, `alamat`, `telp`, `tgllahir`, `foto`, `gender`, `paket`, `status`) VALUES
+(6, 'duta', 'edy kurniawan', 'Godog Rt.01/09', '0878812121', '2020-09-15', '2aa1b67f27696d1a6d42c9ba2fd9356c.jpg', 'L', 'SMK/1', '');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `absensi`
+--
+ALTER TABLE `absensi`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `guru`
@@ -109,16 +134,22 @@ ALTER TABLE `murid`
 --
 
 --
+-- AUTO_INCREMENT for table `absensi`
+--
+ALTER TABLE `absensi`
+  MODIFY `id` int(2) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `guru`
 --
 ALTER TABLE `guru`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `murid`
 --
 ALTER TABLE `murid`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

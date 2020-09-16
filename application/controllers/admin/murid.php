@@ -8,13 +8,16 @@ class murid extends CI_Controller
     {
         parent::__construct();
         if ($this->session->userdata['logged'] == TRUE) {
+            if ($this->session->userdata['level'] == "admin") {
+                
+            }else {  redirect('auth/error_page');}
         } else {
             $this->session->set_flashdata('message', '<div style="color : red;">Login Terlebih Dahulu</div>');
             redirect('Login');
         }
 
         $this->load->model('M_murid');
-        $this->load->helper(array('form', 'url', 'tombol', 'add'));
+        $this->load->helper(array('form', 'url', 'tombol', 'add','img'));
         // $this->load->library('ciqrcode'); //pemanggilan library QR CODE
     }
 
@@ -33,15 +36,19 @@ class murid extends CI_Controller
         $list   = array();
         $No     = 1;
         foreach ($result as $r) {
+            if( $r->status=="T" ) { $status = "<span class='badge badge-primary'>Diterima</span>"; }
+            else if( $r->status=="F" ) { $status = "<span class='badge badge-danger'>Tidak Diterima</span>"; }
+            else { $status = "<span class='badge badge-warning'>Belum divalidasi</span>"; }
             $row    = array(
                 "no"        => $No,
                 "kode"      => $r->kode,
                 "nama"      => $r->nama,
                 "alamat"    => $r->alamat,
-                "telp"  => $r->telp,
-                "jenjang"    => $r->jenjang,
-                "tgllahir"     => $r->tgllahir,
-                "foto"     => $r->foto,
+                "telp"      => $r->telp,
+                "tgllahir"  => $r->tgllahir,
+                "paket"     => $r->paket,
+                "foto"      => img($r->foto),
+                "status"    => $status,
                 "action"    => tombol($r->id)
             );
 
@@ -98,18 +105,14 @@ class murid extends CI_Controller
         $nama = $this->input->post('nama');
         $alamat = $this->input->post('alamat');
         $telp = $this->input->post('telp');
-        $jenjang = $this->input->post('jenjang');
-        $foto = $this->input->post('foto');
-        $tgllahir = $this->input->post('tgllahir');
+        $tgllahir = $this->input->post('tgl');
 
         $data = array(
             "kode"      => $kode,
             "nama"      => $nama,
             "telp"       => $telp,
             "alamat"      => $alamat,
-            "jenjang"      => $jenjang,
-            "tgllahir"      => $tgllahir,
-            "foto"       => $foto
+            "tgllahir"      => $tgllahir
 
         );
 

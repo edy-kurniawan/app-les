@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Tempo Bootstrap Template - Index</title>
+  <title>Daftar - App Les</title>
   <meta content="" name="descriptison">
   <meta content="" name="keywords">
 
@@ -23,7 +23,8 @@
   <link href="<?php echo base_url(); ?>/assets/Tempo/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="<?php echo base_url(); ?>/assets/Tempo/assets/vendor/venobox/venobox.css" rel="stylesheet">
   <link href="<?php echo base_url(); ?>/assets/Tempo/assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
-
+  <link href="<?php echo base_url(); ?>/assets/Tempo/assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="<?php echo base_url(); ?>/assets/modules/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
   <!-- Template Main CSS File -->
   <link href="<?php echo base_url(); ?>/assets/Tempo/assets/css/style.css" rel="stylesheet">
 
@@ -37,59 +38,17 @@
 
 <body>
 
-  <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top ">
-    <div class="container d-flex align-items-center">
-
-      <h1 class="logo mr-auto"><a href="index.html">Tempo</a></h1>
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo mr-auto"><img src="<?php echo base_url(); ?>/assets/Tempo/assets/img/logo.png" alt="" class="img-fluid"></a>-->
-
-      <nav class="nav-menu d-none d-lg-block">
-        <ul>
-          <li class="active"><a href="index.html">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#team">Team</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li class="drop-down"><a href="">Drop Down</a>
-            <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="drop-down"><a href="#">Deep Drop Down</a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
-            </ul>
-          </li>
-          <li><a href="#contact">Contact</a></li>
-
-        </ul>
-      </nav><!-- .nav-menu -->
-
-    </div>
-  </header><!-- End Header -->
-
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
       <div class="container">
 
         <div class="section-title">
-          <h2>Contact</h2>
-          <h3>Contact <span>Us</span></h3>
-          <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p>
+          <h2>Daftar</h2>
+          <h3>Daftarkan Sebagai <span>Pengajar</span></h3>
         </div>
 
         <div>
-          <iframe style="border:0; width: 100%; height: 270px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" allowfullscreen></iframe>
+          <iframe style="border:0; width: 100%; height: 270px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1662.8593964226027!2d110.8089190636208!3d-7.57841308881967!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a16783dbd32eb%3A0xe852ba0aa1842158!2sUniversitas%20Duta%20Bangsa!5e0!3m2!1sen!2sid!4v1600221048473!5m2!1sen!2sid" frameborder="0" allowfullscreen></iframe>
         </div>
 
         <div class="row mt-5">
@@ -98,14 +57,14 @@
             <div class="info">
               <div class="address">
                 <i class="icofont-google-map"></i>
-                <h4>Location:</h4>
-                <p>A108 Adam Street, New York, NY 535022</p>
+                <h4>Lokasi:</h4>
+                <p>Tipes, Serengan, Surakarta , Jawa Tengah 57154</p>
               </div>
 
               <div class="email">
                 <i class="icofont-envelope"></i>
                 <h4>Email:</h4>
-                <p>info@example.com</p>
+                <p>udb@ac.id</p>
               </div>
 
               <div class="phone">
@@ -120,31 +79,63 @@
 
           <div class="col-lg-8 mt-5 mt-lg-0">
 
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <form action="<?php echo site_url('user/register/add_guru'); ?>" method="post" role="form">
               <div class="form-row">
                 <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                  <input type="text" name="username" class="form-control" placeholder="Username" data-rule="minlen:4" data-msg="Please enter at least 4 chars" required/>
                   <div class="validate"></div>
                 </div>
                 <div class="col-md-6 form-group">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                  <input type="email" class="form-control" name="email" placeholder="Email" data-rule="email" data-msg="Please enter a valid email" required/>
+                  <div class="validate"></div>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col-md-6 form-group">
+                  <input type="password" name="pass" class="form-control" placeholder="Password" data-rule="minlen:4" data-msg="Please enter at least 4 chars" required/>
+                  <div class="validate"></div>
+                </div>
+                <div class="col-md-6 form-group">
+                  <input type="password" class="form-control" name="pass2" placeholder="Ulangi password" data-rule="minlen:4" data-msg="Please enter a valid email" required/>
                   <div class="validate"></div>
                 </div>
               </div>
               <div class="form-group">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                <input type="text" class="form-control" name="nama" placeholder="Nama" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" required/>
+                <div class="validate"></div>
+              </div>
+              <div class="form-row">
+                <div class="col-md-4 form-group">
+                  <input type="number" name="telp" class="form-control" placeholder="No Hp" data-rule="minlen:10" data-msg="Please enter at least 4 chars" required/>
+                  <div class="validate"></div>
+                </div>
+                <div class="col-md-4 form-group">
+                  <input type="text" class="form-control datepicker" name="tgl" id="datepicker" placeholder="Tgl Lahir" data-msg="Please enter a valid email" required/>
+                  <div class="validate"></div>
+                </div>
+                <div class="col-md-4 form-group">
+                  <select name="jenis" class="form-control" required>
+                      <option value="">Jenis Kelamin</option>
+                      <option value="L">Laki - Laki</option>
+                      <option value="P">Perempuan</option>                      
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" name="alamat" placeholder="Alamat" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" required/>
                 <div class="validate"></div>
               </div>
               <div class="form-group">
-                <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                <input type="text" class="form-control" name="mapel" placeholder="Mata Pelajaran yg ingin anda ajarkan & jenjang (Matematika - SMP)." data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" required/>
                 <div class="validate"></div>
               </div>
-              <div class="mb-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
+              <div class="form-group">
+                <textarea class="form-control" name="lampiran" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Upload lampiran anda berupa ijasah, transkrip nilai, dan dokomen pendukung lainya pada penyimpanan online seperti google drive & lampirkan alamat / urlnya pada field ini."></textarea>
+                <div class="validate"></div>
               </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
+                <?php echo $this->session->flashdata('message');?>
+                <?php echo validation_errors(); ?>
+              <div class="text-center"><button type="submit" class="btn btn-danger">Daftar</button></div>
             </form>
 
           </div>
@@ -245,6 +236,16 @@
 
   <!-- Template Main JS File -->
   <script src="<?php echo base_url(); ?>/assets/Tempo/assets/js/main.js"></script>
+  <script src="<?php echo base_url(); ?>assets/modules/moment/moment.min.js"></script>
+  <script src="<?php echo base_url(); ?>assets/modules/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script> 
+ 
+  <script type="text/javascript">
+  $(function(){
+  $(".datepicker").datetimepicker({
+    format: 'YYYY-MM-DD',
+  });
+  });
+</script>
 
 </body>
 

@@ -38,14 +38,15 @@ function aksi_login(){
         if($cek > 0){
            $query = $this->db->query("SELECT
                                     login.username,
-                                    login.pass
+                                    login.pass,
+                                    login.level
                                     FROM login where username='$username'
                                     ");
             $row = $query->row();
             $data_session = array(
                 'username' => $username,
                 'logged'    => TRUE,
-                
+                'level'    => $row->level,
             );
 
             $this->session->set_userdata($data_session);
@@ -54,7 +55,7 @@ function aksi_login(){
                 <i class="icon fa fa-check"></i>
                 Login Sukses
               </div>');
-                redirect('admin/guru');
+                redirect('admin/auth');
 
         }else{
             $this->session->set_flashdata('message', '<div style="color : red;">Username dan password Tidak Ditemukan</div>');

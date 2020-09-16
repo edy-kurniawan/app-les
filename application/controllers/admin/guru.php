@@ -8,6 +8,9 @@ class guru extends CI_Controller
     {
         parent::__construct();
         if ($this->session->userdata['logged'] == TRUE) {
+            if ($this->session->userdata['level'] == "admin") {
+                
+            }else {  redirect('auth/error_page');}
         } else {
             $this->session->set_flashdata('message', '<div style="color : red;">Login Terlebih Dahulu</div>');
             redirect('Login');
@@ -42,6 +45,8 @@ class guru extends CI_Controller
                 "tgllahir"  => $r->tgllahir,
                 "gender"    => $r->gender,
                 "mapel"     => $r->mapel,
+                "lampiran"  => $r->lampiran,
+                "status"    => $r->status,
                 "action"    => tombol($r->id)
             );
 
@@ -70,16 +75,16 @@ class guru extends CI_Controller
         $mapel = $this->input->post('mapel');
         $tgllahir = $this->input->post('tgl');
 
-        $data = array(
-            "kode"      => $kode,
-            "nama"      => $nama,
-            "telp"       => $telp,
-            "alamat"      => $alamat,
-            "gender"      => $gender,
-            "tgllahir"      => $tgllahir,
-            "mapel"       => $mapel
+            $data = array(
+                "kode"      => $kode,
+                "nama"      => $nama,
+                "telp"      => $telp,
+                "alamat"    => $alamat,
+                "gender"    => $gender,
+                "tgllahir"  => $tgllahir,
+                "mapel"     => $mapel
 
-        );
+            );
 
         $this->M_guru->inputdata($data, 'guru');
         echo json_encode(array("status" => TRUE));
@@ -100,6 +105,7 @@ class guru extends CI_Controller
         $alamat = $this->input->post('alamat');
         $gender = $this->input->post('jenis');
         $mapel = $this->input->post('mapel');
+        $lampiran = $this->input->post('lampiran');
         $tgllahir = $this->input->post('tgl');
 
         $data = array(
@@ -109,6 +115,7 @@ class guru extends CI_Controller
             "alamat"      => $alamat,
             "gender"      => $gender,
             "tgllahir"      => $tgllahir,
+            "lampiran"  => $lampiran,
             "mapel"       => $mapel
 
         );
